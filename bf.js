@@ -40,6 +40,17 @@ function interpret(){
         ptr -= 1;
         pos += 1;break;
       case '[':
+      if(tape[ptr] == 0){
+          checkbracket = 1;
+          while(checkbracket>0){
+            pos+=1;
+            if(program[pos] == ']'){
+              checkbracket -= 1;
+            }else if(program[pos] == '['){
+              checkbracket += 1;
+            }
+          }
+        }
         pos += 1;break;
       case ']':
         if(tape[ptr] != 0){
