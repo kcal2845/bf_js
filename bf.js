@@ -28,10 +28,10 @@ function interpret(){
   while(pos<program.length){
     switch(program[pos]){
       case '+':
-        tape[ptr] += 1;
+        if(tape[ptr]==255){tape[ptr] = 0;}else{tape[ptr] += 1;}
         pos += 1;break;
       case '-':
-        tape[ptr] -= 1;
+        if(tape[ptr]==0){tape[ptr] = 255;}else{tape[ptr] -= 1;}
         pos += 1;break;
       case '>':
         ptr += 1;
